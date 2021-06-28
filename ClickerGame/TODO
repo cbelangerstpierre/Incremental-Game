@@ -1,0 +1,41 @@
+List of TODOs
+
+2. Do a Desktop Shortcut
+
+3. Add a save and load button
+
+3. Make a window for upgrades
+
+4. Make a window for unlocks
+
+5. Make a window for restarting with better things
+
+6. Add a "are you sure" before deleting user's save (Pop-up window)
+
+7. Add Design and aesthetics
+
+8. Add a quit button in the menu
+
+9. Add x1, x10, x100, xMax options
+
+10. Add buy everything I can option in Upgrades
+
+11. Add a menu to get to Upgrades, Unlocks and Beauty restart
+
+12. Make scientific numbers
+
+13. Add a "Are you a guy or a girl" or "Choose your avatar"
+
+14. Click on the avatar to change it
+
+15. Click on followers_per_second to see how much each buildings contributed
+
+16. Add a red "Not enough fund" when buying something without having the money in the middle of the screen for few seconds
+
+17. Upgrades could be a list of price, example : Speak to someone x 2 : 1000$, 1E6, 1E9, 1E12 etc...
+
+18. Make a function that call function that updates example : def update():
+                                                                cost_label_update()
+                                                                follower_maker_label_update()
+
+19. If you can buy the building_background become light orange background-color: rgb(193, 119, 0);
