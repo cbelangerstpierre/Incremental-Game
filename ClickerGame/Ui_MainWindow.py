@@ -9,15 +9,17 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from dictionary import *
-import main
-
 
 
 class Ui_MainWindow(object):
+    def __init__(self, buildings):
+        self.buildings = buildings
+
     def setupUi(self, MainWindow):
-        # Didn't work because this is probably searching for follower class before the main have initialze it,
-        # but I don't think so because main can print it.
-        # print(main.follower_class)
+
+        # update_UI.updateText()
+
+        print(self.buildings.universe.level)
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -802,7 +804,7 @@ class Ui_MainWindow(object):
                                        self.num_of_buys_label7,
                                        self.num_of_buys_label8,
                                        self.num_of_buys_label9,
-                                       self.num_of_buys_label10,]
+                                       self.num_of_buys_label10, ]
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

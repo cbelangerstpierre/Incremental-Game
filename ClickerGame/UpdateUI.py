@@ -1,9 +1,11 @@
-import main
-
-
 class UpdateUI:
+    def __init__(self, ui, followers, buildings):
+        self.ui = ui
+        self.followers = followers
+        self.buildings = buildings
+
     def updateText(self):
-        main.ui.follower_maker_label3.setText("BLABLA")
-        print(main.ui.buildings.internet_ad.name)
-        print(main.followers)
-        print(main.buildings)
+        #self.ui.follower_maker_label3.setText("Hello")
+        #print(self.ui.follower_maker_label3.setText(""))
+        print(self.followers)
+        print(self.buildings.speak_to_someone.name, "5")
