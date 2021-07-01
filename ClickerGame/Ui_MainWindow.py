@@ -9,17 +9,23 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from dictionary import *
+from main import UpdateUI
 
 
 class Ui_MainWindow(object):
-    def __init__(self, buildings):
+    updateUI: UpdateUI
+
+    def __init__(self, buildings, followers):
         self.buildings = buildings
+        self.followers = followers
+
+    def setUpdateUI(self, updateUI):
+        self.updateUI = updateUI
+
+    def something(self):
+        self.updateUI.updateText()
 
     def setupUi(self, MainWindow):
-
-        # update_UI.updateText()
-
-        print(self.buildings.universe.level)
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -217,6 +223,16 @@ class Ui_MainWindow(object):
         self.building_background10.setText("")
         self.building_background10.setScaledContents(False)
         self.building_background10.setObjectName("building_background10")
+        self.building_background_list = [self.building_background1,
+                                         self.building_background2,
+                                         self.building_background3,
+                                         self.building_background4,
+                                         self.building_background5,
+                                         self.building_background6,
+                                         self.building_background7,
+                                         self.building_background8,
+                                         self.building_background9,
+                                         self.building_background10]
         self.num_of_buys_label = QtWidgets.QLabel(self.centralwidget)
         self.num_of_buys_label.setGeometry(QtCore.QRect(663, 141, 101, 51))
         self.num_of_buys_number = 0
@@ -520,6 +536,16 @@ class Ui_MainWindow(object):
         self.cost_label10.setGeometry(QtCore.QRect(470, 519, 111, 20))
         self.cost_label10.setAlignment(QtCore.Qt.AlignCenter)
         self.cost_label10.setObjectName("cost_label10")
+        self.cost_label_list = [self.cost_label1,
+                                self.cost_label2,
+                                self.cost_label3,
+                                self.cost_label4,
+                                self.cost_label5,
+                                self.cost_label6,
+                                self.cost_label7,
+                                self.cost_label8,
+                                self.cost_label9,
+                                self.cost_label10,]
         self.num_of_buys_label2 = QtWidgets.QLabel(self.centralwidget)
         self.num_of_buys_label2.setGeometry(QtCore.QRect(120, 240, 111, 20))
         font = QtGui.QFont()
@@ -814,7 +840,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Idle Followers Clicker"))
-        self.num_of_followers_label.setText(_translate("MainWindow", "0 followers"))
+        self.num_of_followers_label.setText(_translate("MainWindow", f"{self.followers.getFollowers()} followers"))
         self.num_of_buys_label.setText(_translate("MainWindow", "x1"))
         self.building_level1.setText(_translate("MainWindow", str(building_dict1["level"])))
         self.building_level2.setText(_translate("MainWindow", str(building_dict2["level"])))
@@ -828,7 +854,7 @@ class Ui_MainWindow(object):
         self.building_level10.setText(_translate("MainWindow", str(building_dict10["level"])))
         self.num_of_buys_label1.setText(_translate("MainWindow", "Buy x1"))
         self.building_title1.setText(_translate("MainWindow", "Speak to someone"))
-        self.cost_label1.setText(_translate("MainWindow", "Cost : " + str(building_dict1["cost"])))
+        self.cost_label1.setText(_translate("MainWindow", f"Cost : {self.buildings.speak_to_someone.cost_shown}"))
         self.follower_maker_label1.setText(_translate("MainWindow", "+{follower_maker1} / s"))
         self.building_title2.setText(_translate("MainWindow", "Use a Megaphone"))
         self.follower_maker_label2.setText(_translate("MainWindow", "+{follower_maker2} / s"))
@@ -848,15 +874,15 @@ class Ui_MainWindow(object):
         self.follower_maker_label8.setText(_translate("MainWindow", "+{follower_maker8} / s"))
         self.follower_maker_label9.setText(_translate("MainWindow", "+{follower_maker9} / s"))
         self.follower_maker_label10.setText(_translate("MainWindow", "+{follower_maker10} / s"))
-        self.cost_label2.setText(_translate("MainWindow", "Cost : " + str(building_dict2["cost"])))
-        self.cost_label3.setText(_translate("MainWindow", "Cost : " + str(building_dict3["cost"])))
-        self.cost_label4.setText(_translate("MainWindow", "Cost : " + str(building_dict4["cost"])))
-        self.cost_label5.setText(_translate("MainWindow", "Cost : " + str(building_dict5["cost"])))
-        self.cost_label6.setText(_translate("MainWindow", "Cost : " + str(building_dict6["cost"])))
-        self.cost_label7.setText(_translate("MainWindow", "Cost : " + str(building_dict7["cost"])))
-        self.cost_label8.setText(_translate("MainWindow", "Cost : " + str(building_dict8["cost"])))
-        self.cost_label9.setText(_translate("MainWindow", "Cost : " + str(building_dict9["cost"])))
-        self.cost_label10.setText(_translate("MainWindow", "Cost :" + str(building_dict10["cost"])))
+        self.cost_label2.setText(_translate("MainWindow", f"Cost : {self.buildings.megaphone.cost_shown}"))
+        self.cost_label3.setText(_translate("MainWindow", f"Cost : {self.buildings.internet_ad.cost_shown}"))
+        self.cost_label4.setText(_translate("MainWindow", f"Cost : {self.buildings.tv_ad.cost_shown}"))
+        self.cost_label5.setText(_translate("MainWindow", f"Cost : {self.buildings.superbowl_ad.cost_shown}"))
+        self.cost_label6.setText(_translate("MainWindow", f"Cost : {self.buildings.speak_to_the_world.cost_shown}"))
+        self.cost_label7.setText(_translate("MainWindow", f"Cost : {self.buildings.solar_system.cost_shown}"))
+        self.cost_label8.setText(_translate("MainWindow", f"Cost : {self.buildings.galaxy.cost_shown}"))
+        self.cost_label9.setText(_translate("MainWindow", f"Cost : {self.buildings.universe.cost_shown}"))
+        self.cost_label10.setText(_translate("MainWindow", f"Cost : {self.buildings.other_dimensions.cost_shown}"))
         self.num_of_buys_label2.setText(_translate("MainWindow", "Buy x1"))
         self.num_of_buys_label3.setText(_translate("MainWindow", "Buy x1"))
         self.num_of_buys_label4.setText(_translate("MainWindow", "Buy x1"))
@@ -866,7 +892,7 @@ class Ui_MainWindow(object):
         self.num_of_buys_label8.setText(_translate("MainWindow", "Buy x1"))
         self.num_of_buys_label9.setText(_translate("MainWindow", "Buy x1"))
         self.num_of_buys_label10.setText(_translate("MainWindow", "Buy x1"))
-        self.followers_per_sec_label.setText(_translate("MainWindow", "+ 0 followers / s"))
+        self.followers_per_sec_label.setText(_translate("MainWindow", f"+ {self.followers.getFollowersMaker()} followers / s"))
         self.menuSettings.setTitle(_translate("MainWindow", "Settings"))
         self.actionSave.setText(_translate("MainWindow", "Save"))
         self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S"))
@@ -885,3 +911,5 @@ class Ui_MainWindow(object):
 
         for label in self.num_of_buys_label_list:
             label.setText("Buy x" + self.num_of_buys_list[self.num_of_buys_number])
+
+        self.updateUI.updateNumOfBuysCost()

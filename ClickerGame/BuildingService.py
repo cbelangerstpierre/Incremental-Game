@@ -14,3 +14,13 @@ class BuildingService:
         self.galaxy = building.Building(building_dict8)
         self.universe = building.Building(building_dict9)
         self.other_dimensions = building.Building(building_dict10)
+        self.building_list = [self.speak_to_the_world,
+                              self.megaphone,
+                              self.internet_ad,
+                              self.tv_ad,
+                              self.superbowl_ad,
+                              self.speak_to_the_world,
+                              self.solar_system,
+                              self.galaxy,
+                              self.universe,
+                              self.other_dimensions]

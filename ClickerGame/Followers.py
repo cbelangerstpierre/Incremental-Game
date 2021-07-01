@@ -1,6 +1,6 @@
 class Followers:
     def __init__(self):
-        self.followers = 0
+        self.followers = 4
         self.followers_maker = 0
 
     def getFollowers(self):
