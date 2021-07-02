@@ -14,7 +14,7 @@ class BuildingService:
         self.galaxy = Building.Building(building_dict8)
         self.universe = Building.Building(building_dict9)
         self.other_dimensions = Building.Building(building_dict10)
-        self.building_list = [self.speak_to_the_world,
+        self.building_list = [self.speak_to_someone,
                               self.megaphone,
                               self.internet_ad,
                               self.tv_ad,

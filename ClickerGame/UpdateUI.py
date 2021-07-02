@@ -31,11 +31,9 @@ class UpdateUI:
         else:
             i = 0
             for building in self.buildings.building_list:
-
                 # function
                 if float(self.followers.followers) < building.getCost():
                     # function
-                    print(building.getCost())
                     new_cost_shown = 0
                     last_cost = 0
                     able_to_buy = 1

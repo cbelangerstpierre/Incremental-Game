@@ -8,6 +8,9 @@ class Building:
         self.cost_shown = dictionary["cost_shown"]
         self.cost_multiplier = dictionary["cost_multiplier"]
 
+    def getName(self):
+        return self.name
+
     def getLevel(self):
         return self.level
 
