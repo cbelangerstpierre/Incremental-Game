@@ -20,20 +20,28 @@ class UpdateUI:
     def updateNumOfBuysCost(self):
         if self.ui.num_of_buys_number != 3:
             for building in self.buildings.building_list:
+                # function
                 new_cost_shown = building.getCost()
                 for i in range(int(self.ui.num_of_buys_list[self.ui.num_of_buys_number]) - 1):
                     new_cost_shown += building.getCost() * building.getCostMultiplier() ** (i + 1)
                 new_cost_shown = "{:.2f}".format(new_cost_shown)
                 building.setCostShown(new_cost_shown)
+                # end function
 
         else:
+            i = 0
             for building in self.buildings.building_list:
 
+                # function
                 if float(self.followers.followers) < building.getCost():
+                    # function
+                    print(building.getCost())
                     new_cost_shown = 0
                     last_cost = 0
                     able_to_buy = 1
+                    # end function
                 else:
+                    # function
                     new_cost_shown = building.getCost()
                     last_cost = building.getCost()
                     able_to_buy = 1
@@ -41,10 +49,11 @@ class UpdateUI:
                         new_cost_shown += last_cost * building.getCostMultiplier()
                         last_cost *= building.getCostMultiplier()
                         able_to_buy += 1
-
+                    # end function
                 building.setCostShown("{:.2f}".format(new_cost_shown - last_cost))
-                for label in self.ui.num_of_buys_label_list:
-                    label.setText(f"Buy x{able_to_buy - 1}")
+                self.ui.num_of_buys_label_list[i].setText(f"Buy x{able_to_buy - 1}")
+                i += 1
+                # end function
 
         i = 0
         for cost_label in self.ui.cost_label_list:
